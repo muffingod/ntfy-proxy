@@ -1,0 +1,25 @@
+{
+  "name": "ntfy-proxy",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx --watch src/index.ts",
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.11.0",
+  "devDependencies": {
+    "@tsconfig/node22": "^22.0.2",
+    "@types/node": "^24.3.3",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  },
+  "imports": {
+    "#*": "./src/*"
+  }
+}
