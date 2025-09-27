@@ -1,3 +1,14 @@
+# NTFY-Proxy
+
+This project is a message proxy for [ntfy.sh](ntfy.sh), which is a simple pub-sub notification service.
+My initial problem was that some services (for example, Jellyseer) are compatible with this service; however, it pushes all its notifications into one topic. This could cause unnecessary notifications for most users, as they won't be interested, for example, when something broke; however, an admin would be.
+As a solution, I created this project. It is a really simple proxy. It uses WebSockets for the incoming topics, and based on a match criterion, it would repost the message on an outgoing topic. This would result in multiple topics, but the user base could decide what topics they are really interested in.
+
+## Configuration
+
+The program can be configured via the `Config.ts` file. I included an example that you can check out.
+
+```
 import { Configuration } from "#types/config.js";
 
 /* RENAME THIS FILE TO `Config.ts` */
@@ -56,3 +67,20 @@ config.handlers.push({
 })
 
 export default config;
+```
+
+## Run the program
+
+First, let's install the dependencies:
+
+```bash
+pnpm i
+```
+
+Then, you can run the app in dev mode:
+
+```bash
+pnpm dev
+```
+
+In this mode, you can adjust the config as you like, and the app will restart every time you make a change.
